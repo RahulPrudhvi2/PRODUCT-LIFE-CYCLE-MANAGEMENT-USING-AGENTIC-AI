@@ -1,42 +1,52 @@
-# PLM Agentic AI System (Predictive Maintenance)
-![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
+# 🚀 PLM Agentic AI System (Predictive Maintenance)
 
-A multi-agent AI system using CrewAI for predictive maintenance with sensor data, machine learning, and decision automation.
+A modular **multi-agent AI system** that simulates Product Lifecycle Management (PLM) using predictive maintenance principles.
+The system ingests sensor data, evaluates equipment health, and autonomously generates maintenance decisions in real time.
 
-## Features
+---
 
-- **Multi-Agent System**: Monitoring, Analytics, Decision, and Orchestrator agents
-- **Machine Learning**: Anomaly detection with Isolation Forest, RUL prediction with regression
-- **RAG Memory**: ChromaDB for engineering knowledge storage and retrieval
-- **FastAPI Backend**: REST API for predictions
-- **Streamlit UI**: Interactive dashboard for predictions
-- **Docker Support**: Containerized deployment
+## 🧠 Overview
 
-## Installation
+Modern industrial systems require **proactive maintenance** to reduce downtime and operational risk.
+This project demonstrates how **Agentic AI-inspired pipelines** can be applied to PLM workflows by decomposing the problem into specialized agents.
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Train the ML models:
-   ```bash
-   python ml/train.py
-   ```
-4. Run the backend:
-   ```bash
-   uvicorn backend.main:app --reload
-   ```
-5. Run the UI:
-   ```bash
-   streamlit run ui/app.py
-   ```
+Each stage of the pipeline is handled by an independent module:
 
-## API Usage
+* 🔍 **Monitoring Agent** → Detects anomalies in sensor signals
+* 📊 **Analytics Agent** → Estimates Remaining Useful Life (RUL) and failure probability
+* 🧮 **Decision Agent** → Recommends maintenance actions based on risk thresholds
 
-POST /predict with JSON:
+The system is exposed via a **FastAPI backend** and visualized using a **Streamlit dashboard**.
+
+---
+
+## ⚙️ Key Features
+
+* 🔹 Modular multi-agent architecture
+* 🔹 Real-time predictive maintenance simulation
+* 🔹 RESTful API using FastAPI
+* 🔹 Interactive dashboard using Streamlit
+* 🔹 Structured JSON outputs for integration
+* 🔹 Easily extensible for ML and real-world data
+
+---
+
+## 🏗️ System Architecture
+
+```text
+Sensor Data → Monitoring Agent → Analytics Agent → Decision Agent → Output
+```
+
+| Component  | Responsibility                              |
+| ---------- | ------------------------------------------- |
+| Monitoring | Detect anomalies in temperature & vibration |
+| Analytics  | Estimate RUL and failure probability        |
+| Decision   | Generate maintenance strategy               |
+
+---
+
+## 🧪 Sample Input
+
 ```json
 {
   "temperature": 85,
@@ -45,20 +55,140 @@ POST /predict with JSON:
 }
 ```
 
-## Docker
+---
 
-Build and run:
-```bash
-docker-compose up --build
+## 📤 Sample Output
+
+```json
+{
+  "prediction": "IMMEDIATE MAINTENANCE",
+  "context": {
+    "monitoring": {"anomaly": true, "severity": "HIGH"},
+    "analytics": {"rul": 500, "failure_prob_7d": 0.8},
+    "decision": "IMMEDIATE MAINTENANCE"
+  }
+}
 ```
 
-## Project Structure
+---
 
-- `backend/`: FastAPI application
-- `agents/`: CrewAI agents
-- `tasks/`: Task definitions
-- `tools/`: Custom tools
-- `ml/`: Machine learning models and training
-- `rag/`: Vector database setup
-- `ui/`: Streamlit dashboard
-- `data/`: Sample datasets
+## 🚀 Getting Started
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/yourusername/plm-agentic-ai.git
+cd plm-agentic-ai
+```
+
+---
+
+### 2. Setup Virtual Environment
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Run Backend
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+API available at:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### 5. Run Frontend
+
+```bash
+streamlit run ui/app.py
+```
+
+---
+
+## 📡 API Reference
+
+### POST `/predict`
+
+**Request:**
+
+```json
+{
+  "temperature": 85,
+  "vibration": 4.5,
+  "cycle": 500
+}
+```
+
+**Response:**
+
+```json
+{
+  "prediction": "...",
+  "context": {...}
+}
+```
+
+---
+
+## 🧠 Technical Stack
+
+* **Backend:** FastAPI
+* **Frontend:** Streamlit
+* **Language:** Python
+* **Data Processing:** NumPy, Pandas
+
+---
+
+## 📊 Design Highlights
+
+* ✔ Modular pipeline simulating agent-based workflows
+* ✔ Decoupled components for scalability
+* ✔ Interpretable decision logic
+* ✔ API-first architecture
+
+---
+
+## ⚠️ Limitations
+
+* Simulated sensor data (no real IoT integration)
+* Simplified predictive model (rule + heuristic based)
+* No persistent storage layer
+
+---
+
+## 🔮 Future Enhancements
+
+* Integrate ML models (Isolation Forest, LSTM)
+* Add real-time streaming (Kafka / MQTT)
+* Deploy on cloud (AWS / Azure)
+* Add logging, monitoring, and alerting
+* Extend to full PLM lifecycle (design → production → maintenance)
+
+---
+
+## 👨‍💻 Author
+
+**Rahul Prudhvi**
+
+---
+
+## ⭐ Support
+
+If you found this useful, consider giving it a ⭐ on GitHub!
