@@ -1,7 +1,7 @@
 # PLM Agentic AI System (Predictive Maintenance)
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
 
 A multi-agent AI system using CrewAI for predictive maintenance with sensor data, machine learning, and decision automation.
 
